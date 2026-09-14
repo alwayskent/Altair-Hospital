@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #171717;
+}
+
+@theme {
+  --color-altair-blue: #174A9C;
+  --color-altair-white: #FFFFFF;
+  --color-altair-silver: #D9DEE7;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Stats marquee (mobile) */
+@keyframes statsMarquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.stats-marquee {
+  animation: statsMarquee 20s linear infinite;
+  width: max-content;
+}
