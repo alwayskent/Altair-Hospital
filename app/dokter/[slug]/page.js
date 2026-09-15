@@ -47,21 +47,21 @@ export default async function DoctorDetailPage({ params }) {
             <div className="md:col-span-1">
               <div className="bg-altair-white border border-altair-silver rounded-2xl p-8 text-center sticky top-24 shadow-lg">
                 <div className="w-32 h-32 bg-altair-silver border-2 border-altair-blue rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span className="text-5xl font-bold text-altair-blue">{doctor.initials}</span>
-                    </div>
-                        <h1 className="font-bold text-xl text-gray-900 mb-2">{doctor.name}</h1>
-                        <p className="text-altair-blue text-sm font-medium mb-4">{doctor.specialty}</p>
-                    <div className="flex items-center justify-center gap-1 text-yellow-500 mb-6">
-                        <Star size={16} fill="currentColor" />
-                        <span className="font-semibold text-gray-900">{doctor.rating}</span>
-                    </div>
+                  <span className="text-5xl font-bold text-altair-blue">{doctor.initials}</span>
+                </div>
+                <h1 className="font-bold text-xl text-gray-900 mb-2">{doctor.name}</h1>
+                <p className="text-altair-blue text-sm font-medium mb-4">{doctor.specialty}</p>
+                <div className="flex items-center justify-center gap-1 text-yellow-500 mb-6">
+                  <Star size={16} fill="currentColor" />
+                  <span className="font-semibold text-gray-900">{doctor.rating}</span>
+                </div>
                 <a
-                    href="/janji-temu"
-                    className="block w-full bg-altair-blue text-altair-white py-3 rounded-full font-semibold hover:bg-blue-800 transition-colors"
+                  href="/janji-temu"
+                  className="block w-full bg-altair-blue text-altair-white py-3 rounded-full font-semibold hover:bg-blue-800 transition-colors"
                 >
-                    Buat Janji Temu
+                  Buat Janji Temu
                 </a>
-            </div>
+              </div>
             </div>
 
             <div className="md:col-span-2 space-y-8">
@@ -90,25 +90,24 @@ export default async function DoctorDetailPage({ params }) {
                 </div>
                 <div className="bg-altair-white border border-altair-silver rounded-xl overflow-hidden">
                   {doctor.schedule.map((s, i) => (
-                      <div
-                        key={i}
-                        className={`px-6 py-4 ${
-                          i !== doctor.schedule.length - 1 ? 'border-b border-altair-silver' : ''
+                    <div
+                      key={i}
+                      className={`px-6 py-4 ${i !== doctor.schedule.length - 1 ? 'border-b border-altair-silver' : ''
                         }`}
-                      >
-                        <div className="flex items-center gap-2 font-medium text-gray-900 mb-2">
-                          <Clock size={16} className="text-altair-blue" />
-                          {s.day}
-                        </div>
-                        <div className="flex flex-wrap gap-2 ml-6">
-                          {s.times.map((time, idx) => (
-                            <span key={idx} className="bg-altair-silver text-altair-blue text-xs font-semibold px-3 py-1 rounded-full">
-                              {time}
-                            </span>
-                          ))}
-                        </div>
+                    >
+                      <div className="flex items-center gap-2 font-medium text-gray-900 mb-2">
+                        <Clock size={16} className="text-altair-blue" />
+                        {s.day}
                       </div>
-                    ))}
+                      <div className="flex flex-wrap gap-2 ml-6">
+                        {s.times.map((time, idx) => (
+                          <span key={idx} className="bg-altair-silver text-altair-blue text-xs font-semibold px-3 py-1 rounded-full">
+                            {time}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -116,10 +115,10 @@ export default async function DoctorDetailPage({ params }) {
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Hubungi</h2>
                 <div className="flex flex-wrap gap-4">
                   <a
-                    href="tel:0211234567"
+                    href="tel:0211123657"
                     className="inline-flex items-center gap-2 bg-altair-blue text-altair-white px-6 py-3 rounded-full font-medium hover:bg-blue-800 transition-colors"
                   >
-                    <Phone size={18} /> (021) 1234-5678
+                    <Phone size={18} /> (021) 112-3657
                   </a>
                   <a
                     href="mailto:info@altairhospital.com"

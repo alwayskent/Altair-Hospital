@@ -49,7 +49,7 @@ Layanan vaksinasi tersedia setiap hari kerja, pukul 08:00 - 16:00 WIB, di Poli U
 **Cara Mendaftar:**
 1. Bawa KTP asli dan fotokopi
 2. Bawa buku vaksinasi (jika ada)
-3. Daftar langsung di lokasi atau via WhatsApp ke (021) 1234-5678
+3. Daftar langsung di lokasi atau via WhatsApp ke (021) 112-3657
 
 Tim medis kami yang berpengalaman akan memastikan proses vaksinasi berjalan aman dan nyaman. Konsultasikan kebutuhan vaksinasi Anda dengan dokter kami terlebih dahulu.
     `.trim(),
@@ -82,7 +82,7 @@ MRI ini sangat bermanfaat untuk diagnosis berbagai kondisi, seperti:
 Senin - Sabtu, 07:00 - 20:00 WIB
 Minggu: 08:00 - 14:00 WIB
 
-Untuk membuat janji MRI, silakan hubungi (021) 1234-5678 atau buat janji online melalui website kami.
+Untuk membuat janji MRI, silakan hubungi (021) 112-3657 atau buat janji online melalui website kami.
     `.trim(),
     },
 ]

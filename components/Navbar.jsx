@@ -12,13 +12,8 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Kunci scroll body saat menu terbuka (opsional, biar rapi)
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
@@ -33,25 +28,24 @@ export default function Navbar() {
   ]
 
   return (
-    <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-altair-white shadow-lg' : 'bg-altair-white/95 backdrop-blur'
+    <header
+      className={`fixed top-0 left-0 right-0 w-full transition-all duration-300 bg-altair-white ${scrolled ? 'shadow-lg' : ''
         }`}
+      style={{ zIndex: 100, height: '64px' }}
     >
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 h-full flex justify-between items-center">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 relative z-10">
-          <div className="w-10 h-10 bg-altair-blue rounded-lg flex items-center justify-center">
+        <a href="/" className="flex items-center gap-2 shrink-0">
+          <div className="w-10 h-10 bg-altair-blue rounded-lg flex items-center justify-center shrink-0">
             <HeartPulse className="text-altair-white" size={22} />
           </div>
-          <div>
-            <h1 className="font-bold text-xl text-altair-blue leading-tight">
-              Altair Hospital
-            </h1>
-          </div>
+          <h1 className="font-bold text-lg md:text-xl text-altair-blue leading-tight whitespace-nowrap">
+            Altair Hospital
+          </h1>
         </a>
 
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-8">
+        {/* Desktop Menu — JANGAN DIUBAH */}
+        <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -67,33 +61,49 @@ export default function Navbar() {
           >
             Buat Janji
           </a>
-        </div>
+        </nav>
 
-        {/* Hamburger Button */}
+        {/* Hamburger — ml-3 = jarak di mobile, nggak efek desktop */}
         <button
-          onClick={() => setIsOpen(!isOpen)}
-          onTouchStart={(e) => {
-            e.preventDefault()
-            setIsOpen(!isOpen)
-          }}
-          className="lg:hidden text-altair-blue relative z-10 p-2 -mr-2 touch-manipulation"
-          aria-label="Toggle menu"
           type="button"
+          onClick={() => setIsOpen((v) => !v)}
+          aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
+          aria-expanded={isOpen}
+          className="lg:hidden inline-flex items-center justify-center text-altair-blue ml-3"
+          style={{
+            width: '44px',
+            height: '44px',
+            minWidth: '44px',
+            minHeight: '44px',
+            padding: 0,
+            margin: 0,
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            touchAction: 'manipulation',
+            WebkitTapHighlightColor: 'transparent',
+            position: 'relative',
+            zIndex: 200,
+            flexShrink: 0,
+          }}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={28} strokeWidth={2.5} /> : <Menu size={28} strokeWidth={2.5} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-altair-white border-t border-altair-silver">
-          <div className="px-4 py-4 space-y-3">
+        <div
+          className="lg:hidden bg-altair-white border-t border-altair-silver"
+          style={{ position: 'relative', zIndex: 150, width: '100%' }}
+        >
+          <nav className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-gray-700 hover:text-altair-blue font-medium py-2"
+                className="block text-gray-700 hover:text-altair-blue font-medium py-3 px-2 rounded-lg hover:bg-altair-silver/50 transition-colors"
               >
                 {link.name}
               </a>
@@ -101,13 +111,13 @@ export default function Navbar() {
             <a
               href="/janji-temu"
               onClick={() => setIsOpen(false)}
-              className="block bg-altair-blue text-altair-white px-6 py-3 rounded-full text-center font-medium"
+              className="block bg-altair-blue text-altair-white px-6 py-3 rounded-full text-center font-medium mt-2"
             >
               Buat Janji
             </a>
-          </div>
+          </nav>
         </div>
       )}
-    </nav>
+    </header>
   )
 }

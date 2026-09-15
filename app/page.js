@@ -11,7 +11,7 @@ import Footer from '@/components/Footer'
 
 export default function Page() {
   return (
-    <main className="bg-altair-white w-full overflow-x-hidden">
+    <main className="bg-altair-white w-full">
       <Navbar />
       <Hero />
       <About />

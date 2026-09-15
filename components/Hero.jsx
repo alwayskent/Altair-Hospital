@@ -4,18 +4,22 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative text-white overflow-hidden bg-cover bg-no-repeat"
+      className="relative text-white overflow-hidden bg-cover bg-no-repeat w-full"
       style={{
         backgroundImage: "url('/images/hospital.jpg')",
         backgroundPosition: '65% 15%',
       }}
     >
-      <div className="absolute inset-0 bg-altair-blue/77"></div>
-      <div className="absolute inset-0 opacity-10">
+      {/* Overlay biru transparan */}
+      <div className="absolute inset-0 bg-altair-blue/85"></div>
+
+      {/* Dekorasi blur */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-altair-white rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-altair-silver rounded-full blur-3xl"></div>
       </div>
 
+      {/* Konten Hero */}
       <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -24,7 +28,7 @@ export default function Hero() {
             </span>
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
               Kesehatan Anda,<br />
-              <span className="text-altair-white">Prioritas Kami</span>
+              <span className="text-altair-silver">Prioritas Kami</span>
             </h1>
             <p className="text-lg text-blue-100 mb-8 leading-relaxed">
               Altair Hospital menyediakan pelayanan kesehatan berkualitas dengan teknologi modern dan tenaga medis profesional.
@@ -37,12 +41,16 @@ export default function Hero() {
                 <Calendar size={20} />
                 <span>Buat Janji Temu</span>
               </a>
-              <a href="/layanan" className="inline-flex items-center gap-2 border-2 border-altair-white text-altair-white px-8 py-3.5 rounded-full font-semibold hover:bg-altair-white hover:text-altair-blue transition-colors">
+              <a
+                href="/layanan"
+                className="inline-flex items-center gap-2 border-2 border-altair-white text-altair-white px-8 py-3.5 rounded-full font-semibold hover:bg-altair-white hover:text-altair-blue transition-colors"
+              >
                 Lihat Layanan
               </a>
             </div>
           </div>
 
+          {/* Kartu Fitur */}
           <div className="grid grid-cols-2 gap-4">
             {[
               { icon: Shield, title: 'Terakreditasi', desc: 'Standar Internasional' },
@@ -50,7 +58,10 @@ export default function Hero() {
               { icon: Award, title: 'Dokter Ahli', desc: '150+ Spesialis' },
               { icon: Calendar, title: 'Janji Online', desc: 'Mudah & Cepat' },
             ].map((item, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all">
+              <div
+                key={i}
+                className="bg-white/10 backdrop-blur border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all"
+              >
                 <item.icon className="mb-4 text-altair-silver" size={32} />
                 <h3 className="font-bold text-lg mb-1">{item.title}</h3>
                 <p className="text-sm text-blue-100">{item.desc}</p>
@@ -72,7 +83,9 @@ export default function Hero() {
               { value: '20+', label: 'Tahun Pengalaman' },
             ].map((stat, i) => (
               <div key={i}>
-                <p className="text-3xl md:text-4xl font-bold text-altair-silver">{stat.value}</p>
+                <p className="text-3xl md:text-4xl font-bold text-altair-silver">
+                  {stat.value}
+                </p>
                 <p className="text-sm text-blue-100 mt-1">{stat.label}</p>
               </div>
             ))}
@@ -92,10 +105,7 @@ export default function Hero() {
               { value: '25K+', label: 'Pasien Sembuh' },
               { value: '20+', label: 'Tahun Pengalaman' },
             ].map((stat, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 w-40 text-center"
-              >
+              <div key={i} className="flex-shrink-0 w-40 text-center">
                 <p className="text-3xl font-bold text-altair-silver">{stat.value}</p>
                 <p className="text-xs text-blue-100 mt-1">{stat.label}</p>
               </div>

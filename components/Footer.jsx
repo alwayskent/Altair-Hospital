@@ -60,11 +60,11 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin size={16} className="mt-0.5 text-altair-silver flex-shrink-0" />
-                <span>Jl. Kesehatan No. 123, Jakarta Pusat 10110</span>
+                <span>Jl. Kesehatan No. 11, Gambir, Jakarta Pusat</span>
               </li>
               <li className="flex items-start gap-2">
                 <Phone size={16} className="mt-0.5 text-altair-silver flex-shrink-0" />
-                <span>(021) 1234-5678</span>
+                <span>(021) 112-3657</span>
               </li>
               <li className="flex items-start gap-2">
                 <Mail size={16} className="mt-0.5 text-altair-silver flex-shrink-0" />

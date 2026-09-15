@@ -9,8 +9,8 @@ export default function CTA() {
         <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
           Tim gawat darurat kami siap melayani 24 jam sehari, 7 hari seminggu.
         </p>
-        <a href="tel:0211234567" className="inline-flex items-center gap-3 bg-white text-altair-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-altair-silver transition-colors">
-          <Phone size={24} /> (021) 1234-5678
+        <a href="tel:0211123657" className="inline-flex items-center gap-3 bg-white text-altair-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-altair-silver transition-colors">
+          <Phone size={24} /> (021) 112-3657
         </a>
       </div>
     </section>

@@ -87,19 +87,19 @@ export default function JanjiTemuPage() {
 
       {/* Stepper */}
       <section className="bg-altair-white border-b border-altair-silver">
-        <div className="max-w-2xl mx-auto px-4 py-6">
-          <div className="flex items-start justify-between">
+        <div className="flex justify-center px-4 py-6">
+          <div className="flex items-start gap-4 md:gap-8">
             {[
               { num: 1, label: 'Layanan', icon: Stethoscope },
               { num: 2, label: 'Dokter', icon: User },
               { num: 3, label: 'Jadwal', icon: Calendar },
             ].map((s, i) => (
-              <div key={s.num} className="flex items-start flex-1">
+              <div key={s.num} className="flex items-center gap-4 md:gap-8">
                 <div className="flex flex-col items-center flex-shrink-0">
                   <div
                     className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-bold transition-all ${step >= s.num
-                        ? 'bg-altair-blue text-altair-white'
-                        : 'bg-altair-silver text-gray-400'
+                      ? 'bg-altair-blue text-altair-white'
+                      : 'bg-altair-silver text-gray-400'
                       }`}
                   >
                     {step > s.num ? <Check size={20} /> : <s.icon size={20} />}
@@ -111,9 +111,10 @@ export default function JanjiTemuPage() {
                     {s.label}
                   </span>
                 </div>
+
                 {i < 2 && (
                   <div
-                    className={`flex-1 h-1 mx-3 md:mx-4 mt-5 md:mt-6 rounded ${step > s.num ? 'bg-altair-blue' : 'bg-altair-silver'
+                    className={`w-12 md:w-24 h-1 rounded ${step > s.num ? 'bg-altair-blue' : 'bg-altair-silver'
                       }`}
                   ></div>
                 )}
@@ -170,12 +171,20 @@ export default function JanjiTemuPage() {
                     {services.map((service) => (
                       <button
                         key={service.slug}
+                        type="button"
                         onClick={() => {
                           setSelectedService(service)
                           setSelectedDoctor(null)
                           setStep(2)
                         }}
-                        className="bg-altair-white border border-altair-silver rounded-2xl p-5 shadow-sm hover:shadow-xl hover:border-altair-blue hover:-translate-y-1 transition-all duration-300 text-center group"
+                        style={{
+                          touchAction: 'manipulation',
+                          WebkitTapHighlightColor: 'transparent',
+                          cursor: 'pointer',
+                          position: 'relative',
+                          zIndex: 10,
+                        }}
+                        className="bg-altair-white border border-altair-silver rounded-2xl p-5 shadow-sm hover:shadow-xl hover:border-altair-blue transition-all duration-300 text-center group"
                       >
                         <div className="w-12 h-12 bg-altair-silver rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-altair-blue transition-colors">
                           <service.icon
@@ -327,8 +336,8 @@ export default function JanjiTemuPage() {
                                 type="button"
                                 onClick={() => setSelectedTime(time)}
                                 className={`py-3 rounded-lg font-medium text-sm transition-all ${selectedTime === time
-                                    ? 'bg-altair-blue text-altair-white'
-                                    : 'bg-altair-white border border-altair-silver text-gray-700 hover:border-altair-blue'
+                                  ? 'bg-altair-blue text-altair-white'
+                                  : 'bg-altair-white border border-altair-silver text-gray-700 hover:border-altair-blue'
                                   }`}
                               >
                                 {time}
@@ -435,7 +444,7 @@ export default function JanjiTemuPage() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900 text-sm">Telepon</p>
-                  <p className="text-gray-600 text-sm">(021) 1234-5678</p>
+                  <p className="text-gray-600 text-sm">(021) 112-3657</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -453,7 +462,7 @@ export default function JanjiTemuPage() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900 text-sm">Alamat</p>
-                  <p className="text-gray-600 text-sm">Jl. Kesehatan No. 123, Jakarta</p>
+                  <p className="text-gray-600 text-sm">Jl. Kesehatan No. 11, Gambir, Jakarta Pusat</p>
                 </div>
               </div>
             </div>
