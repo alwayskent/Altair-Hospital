@@ -10,29 +10,57 @@ export default function Fasilitas() {
     { title: 'Keamanan 24/7', desc: 'Petugas keamanan siaga sepanjang hari.' },
   ]
 
+  const total = facilities.length
+
   return (
-    <section id="fasilitas" className="py-20 bg-altair-white border-t border-altair-silver">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-left mb-14">
-          <span className="text-altair-blue font-semibold text-sm uppercase tracking-wider">Fasilitas Kami</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4">
+    <section id="fasilitas" className="py-20 md:py-24 bg-altair-white border-t border-altair-silver">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <div className="max-w-2xl mb-12">
+          <p className="text-altair-blue text-sm uppercase tracking-wider mb-3 font-semibold">
+            Fasilitas Kami
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Fasilitas Modern & Nyaman
           </h2>
-          <p className="text-gray-600 max-w-2xl mr-auto">
+          <p className="text-gray-600">
             Kami menyediakan fasilitas lengkap untuk mendukung kenyamanan dan kesembuhan Anda.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {facilities.map((item, i) => (
-            <div
-              key={i}
-              className="bg-altair-white p-4 md:p-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-altair-silver hover:border-altair-blue"
-            >
-              <h3 className="font-bold text-sm md:text-lg text-gray-900 mb-2">{item.title}</h3>
-              <p className="text-gray-600 text-xs md:text-sm leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-2 lg:grid-cols-4">
+          {facilities.map((item, i) => {
+            // Mobile: 2 kolom. Kolom kiri = index genap (0,2,4,6)
+            // Desktop: 4 kolom. Kolom kiri = index % 4 === 0
+            const isFirstColMobile = i % 2 === 0
+            const isFirstColDesktop = i % 4 === 0
+            const isLastRowMobile = i >= total - 2
+            const isLastRowDesktop = i >= total - 4
+
+            // Border kiri: hanya kalau BUKAN kolom pertama (mobile)
+            const borderLeftMobile = !isFirstColMobile
+            // Border kiri desktop: hanya kalau BUKAN kolom pertama (i % 4 === 0)
+            const borderLeftDesktop = !isFirstColDesktop
+
+            return (
+              <div
+                key={i}
+                className={[
+                  'py-5 px-5 border-altair-silver',
+                  borderLeftMobile ? 'border-l' : '',
+                  borderLeftDesktop ? 'lg:border-l' : 'lg:border-l-0',
+                  !isLastRowMobile ? 'border-b' : '',
+                  isLastRowDesktop ? 'lg:border-b-0' : '',
+                ].join(' ')}
+              >
+                <h3 className="font-bold text-base md:text-lg text-gray-900 mb-1.5">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>
